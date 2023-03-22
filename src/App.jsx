@@ -27,14 +27,14 @@ const App = () => {
     fetchTours()
   }, [])
 
-  // if(isLoading){
-  //   return (
-  //     <main>
-  //       <Loading />
-  //     </main>
-  //   )
-  // }
-
+  if(tours.length === 0){
+    return <main>
+      <div className="title">
+        <h2>no tours left</h2>
+        <button type="button" style={{marginTop:'2rem'}} className="btn" onClick={() => fetchTours()}>Refresh</button>
+      </div>
+    </main>
+  }
 
   return  <main>
       <Tours tours={tours} removeTour={removeTour}/>
